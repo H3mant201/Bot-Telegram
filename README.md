@@ -151,17 +151,31 @@ Mostra el contingut del carret.
 async def veure_carro(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Mostra el contingut del carret."""
     if not carro:
-        await update.message.reply_text("El carret està buit.")
+        await update.message.reply_text("El carret està buit." if update.message else "El carret està buit.")
         return
 
     mensaje = "🛒 Carret de compres:\n"
     total = 0
     for codi, info in carro.items():
-        subtotal = info['preu'] * info['quantitat']
+        # Convertir 'preu' a float y 'quantitat' a int antes de la operación
+        try:
+            preu = float(info['preu'])
+            quantitat = int(info['quantitat'])
+            subtotal = preu * quantitat
+        except ValueError:
+            await update.message.reply_text("Error en los datos del carrito." if update.message else "Error en los datos del carrito.")
+            return
+        
         total += subtotal
-        mensaje += f"- {info['nom']}: {info['quantitat']} x {info['preu']}€ = {subtotal:.2f}€\n"
+        mensaje += f"- {info['nom']}: {quantitat} x {preu}€ = {subtotal:.2f}€\n"
+    
     mensaje += f"\n**Total:** {total:.2f}€"
-    await update.message.reply_text(mensaje, parse_mode='Markdown')
+    
+    if update.message:
+        await update.message.reply_text(mensaje, parse_mode='Markdown')
+    else:
+        # Si 'update.message' es None, manejamos la situación
+        print("Error: No se pudo enviar el mensaje porque 'update.message' es None.")
 ```
 
 ### Configuració Principal
