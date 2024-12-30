@@ -28,7 +28,7 @@ def info_producte(update: Update, context: CallbackContext) -> None:
     Retorna informació bàsica d'un producte a partir del seu codi.
     """
     if len(context.args) != 1:
-        update.message.reply_text("Usa: /info <codi_producte>")
+        update.message.reply_text("Utilitza: /info <codi_producte>")
         return
 
     codi_producte = context.args[0]
@@ -49,7 +49,7 @@ def imatge_producte(update: Update, context: CallbackContext) -> None:
     Envia la imatge d'un producte a partir del seu codi.
     """
     if len(context.args) != 1:
-        update.message.reply_text("Usa: /imatge <codi_producte>")
+        update.message.reply_text("Utilitza: /imatge <codi_producte>")
         return
 
     codi_producte = context.args[0]
@@ -65,7 +65,7 @@ def add_to_cart(update: Update, context: CallbackContext) -> None:
     Afegeix productes al carro de compra.
     """
     if len(context.args) != 2:
-        update.message.reply_text("Usa: /add <codi_producte> <quantitat>")
+        update.message.reply_text("Utilitza: /add <codi_producte> <quantitat>")
         return
 
     codi_producte = context.args[0]
