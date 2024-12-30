@@ -1,6 +1,6 @@
-# Bot de Supermercado con Telegram y MongoDB
+# Bot Mercadona
 
-Este bot permite interactuar con productos almacenados en una base de datos MongoDB utilizando la API de Telegram. Las funcionalidades incluyen consultar información de productos, obtener imágenes y gestionar un carrito de compra.
+Aquest bot permet interactuar amb productes emmagatzemats en una base de dades MongoDB utilitzant la API de Telegram. Les funcionalitats inclouen consultar informació de productes, obtenir imatges i gestionar un carret de compra.
 
 ## Requisitos previos
 
