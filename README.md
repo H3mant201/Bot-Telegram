@@ -33,7 +33,7 @@ productes_coll = db['productes']
 carro = {}
 ```
 
-### Funcions de Comandos
+### Funcions de Comandes
 
 #### `/start`
 
@@ -43,7 +43,7 @@ Envia un missatge de benvinguda a l'usuari.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Missatge de benvinguda."""
     await update.message.reply_text(
-        "👋 Hola! Benvingut al bot del supermercat.\n"
+        "Hola! Benvingut al bot del supermercat.\n"
         "Utilitza /help per a veure els comandos disponibles."
     )
 ```
@@ -154,7 +154,7 @@ async def veure_carro(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("El carret està buit." if update.message else "El carret està buit.")
         return
 
-    mensaje = "🛒 Carret de compres:\n"
+    mensaje = "Carret de compres:\n"
     total = 0
     for codi, info in carro.items():
         # Convertir 'preu' a float i 'quantitat' a int 
